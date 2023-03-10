@@ -2,4 +2,7 @@
 
 ## Requirements
 - Python 3+
-- [UnityPy](https://pypi.org/project/UnityPy/1.9.6/)
+- [UnityPy](https://pypi.org/project/UnityPy/1.9.6/) only this version
+- [Pillow](https://pypi.org/project/Pillow/)
+
+### Bezdrom
