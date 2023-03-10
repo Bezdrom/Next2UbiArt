@@ -74,7 +74,7 @@ def convertMapMB(
         MotionClips = tree["DanceData"].get("MotionClips", [])
         PictoClips = tree["DanceData"].get("PictoClips", [])
         GoldEffectClips = tree["DanceData"].get("GoldEffectClips", [])
-        HideHudClips = tree["DanceData"].get("GoldEffectClips", [])
+        HideHudClips = tree["DanceData"].get("HideHudClips", [])
 
         for ClipTree in MotionClips:
 
