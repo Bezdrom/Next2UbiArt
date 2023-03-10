@@ -157,11 +157,11 @@ def convertMapMB(
 
             Tape["Clips"].append(Clip)
 
-            Tape["Clips"].sort(
-                key=lambda x: x["Id"] - x["TrackId"] + (x["StartTime"] * 10000)
-            )
+        Tape["Clips"].sort(
+            key=lambda x: x["Id"] - x["TrackId"] + (x["StartTime"] * 10000)
+        )
 
-            Utils.writeJSON(data=Tape, path=f"{outputDir}/{mainSequenceName}")
+        Utils.writeJSON(data=Tape, path=f"{outputDir}/{mainSequenceName}")
 
     if "SongDesc" in tree:
         SongDescComponent = {
