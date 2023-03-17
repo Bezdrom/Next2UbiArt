@@ -108,7 +108,7 @@ def convertMapMB(
                 "IsActive": ClipTree["IsActive"],
                 "StartTime": ClipTree["StartTime"],
                 "Duration": ClipTree["Duration"],
-                "PictoPath": f"world/maps/{MapName}/timeline/pictos/{PictoName}.{ext}",
+                "PictoPath": f"world/maps/{MapName}/timeline/pictos/{PictoName}.{ext}".lower(),
                 "CoachCount": ClipTree["CoachCount"],
             }
 
@@ -310,6 +310,12 @@ def convertPictos(*, obj: any, outputDir: str):
 
     canvas.paste(img, position)
 
+    if width // height < 1.447 > 1.445:
+        if width >= 512:
+            canvas = canvas.resize((1024, 512))
+        else:
+            canvas = canvas.resize((256, 256))
+
     canvas.save(f"{outputDir}/pictos/{data.name}.png".lower(), quality=100)
 
     canvas.close()
@@ -406,6 +412,17 @@ def main():
                                         mtName=f"{mapFolderName}_musictrack.tpl.ckd".lower(),
                                     )
 
+                        if obj.type.name == "Sprite":
+                            convertPictos(obj=obj, outputDir=f"output/{mapFolderName}")
+
+                    f.close()
+
+                with open(f"{mapDir}/{mapPackageName}") as mpf:
+                    print("Converting Pictos")
+
+                    env = UnityPy.load(f"{mapDir}/{mapPackageName}")
+
+                    for obj in env.objects:
                         if obj.type.name == "Sprite":
                             convertPictos(obj=obj, outputDir=f"output/{mapFolderName}")
 
