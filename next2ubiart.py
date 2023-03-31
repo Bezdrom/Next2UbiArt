@@ -310,8 +310,8 @@ def convertPictos(*, obj: any, outputDir: str):
 
     canvas.paste(img, position)
 
-    if width // height < 1.447 > 1.445:
-        if width >= 512:
+    if 1.445 < width / height < 1.447:
+        if width >= 512 and height >= 354:
             canvas = canvas.resize((1024, 512))
         else:
             canvas = canvas.resize((256, 256))
