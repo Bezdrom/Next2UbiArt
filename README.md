@@ -6,6 +6,6 @@
 - [Pillow](https://pypi.org/project/Pillow/)
 
 ## How to use
-Run the `next2ubiart.py`
+Run the **`next2ubiart.py`**
 
 ### Bezdrom
